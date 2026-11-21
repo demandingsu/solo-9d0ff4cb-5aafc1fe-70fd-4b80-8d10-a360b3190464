@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    image: localgaz-migrate:latest
+    ports:
+      - "8000:8000"
+    environment:
+      LOCALGAZ_DB: /data/localgaz.db
+    volumes:
+      - localgaz-data:/data
+    restart: unless-stopped
+
+volumes:
+  localgaz-data:
